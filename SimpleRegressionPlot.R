@@ -1,0 +1,13 @@
+# fs is assumed to be available in your working environment
+
+# Perform the two single regressions and save them in a variable
+model_years <- lm(fs$salary~fs$years)
+model_pubs <- lm(fs$salary~fs$pubs)
+
+
+# Plot both enhanced scatter plots in one plot matrix of 1 by 2
+par(mfrow = c(1, 2))
+plot(fs$years,fs$salary, main = "plot_years", xlab = "years", ylab = "salary")
+abline(model_years, col="red")
+plot(fs$pubs,fs$salary, main = "plot_pubs", xlab = "pubs", ylab = "salary")
+abline(model_pubs, col="green")
